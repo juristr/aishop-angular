@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { CurrentOrdersComponent } from '@aishop-angular/orders-feat-current-orders';
+// import { CurrentOrdersComponent } from '@aishop-angular/orders-feat-current-orders';
 
 @Component({
   selector: 'aishop-orders-page',
   standalone: true,
-  imports: [CurrentOrdersComponent],
-  template: `<aishop-current-orders />`,
-  styles: []
+  // imports: [CurrentOrdersComponent],
+  // template: `<aishop-current-orders />`,
+  template: `...`,
+  styles: [],
 })
 export class OrdersPageComponent {}

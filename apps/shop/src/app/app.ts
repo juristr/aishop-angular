@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent, FooterComponent } from '@aishop-angular/shared-ui';
+// import { NavbarComponent, FooterComponent } from '@aishop-angular/shared-ui';
 
 @Component({
-  imports: [RouterModule, NavbarComponent, FooterComponent],
+  // imports: [RouterModule, NavbarComponent, FooterComponent],
+  imports: [RouterModule],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  standalone: true
+  standalone: true,
 })
 export class App {
   protected title = 'shop';

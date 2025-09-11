@@ -1,4 +1,4 @@
-d# React to Angular Migration TODOs for @aishop-angular Nx Workspace
+# React to Angular Migration TODOs for @aishop-angular Nx Workspace
 
 ## Overview
 
@@ -31,14 +31,14 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 
 - [ ] **@aishop-angular/data-access-order**
   ```bash
-  npx nx g @nx/js:library data-access-order --directory=packages/orders/data-access-order --bundler=tsc --tags=npm:private,scope:orders,type:data-access --unitTestRunner=jest
+  npx nx g @nx/js:library data-access-order --directory=packages/orders/data-access-order --bundler=tsc --tags=npm:private,scope:orders,type:data-access --unitTestRunner=vitest --linter=eslint
   ```
   - Copy source files from `tmp-src/packages/orders/data-access-order/src/`
   - Dependencies: `@aishop-angular/utils`
   - ✅ Contains only TypeScript functions and imports
 - [ ] **@aishop-angular/data-access-products**
   ```bash
-  npx nx g @nx/js:library data-access-products --directory=packages/products/data-access-products --bundler=tsc --tags=npm:private,scope:products,type:data-access --unitTestRunner=jest
+  npx nx g @nx/js:library data-access-products --directory=packages/products/data-access-products --bundler=tsc --tags=npm:private,scope:products,type:data-access --unitTestRunner=vitest --linter=eslint
   ```
   - Copy source files from `tmp-src/packages/products/data-access-products/src/`
   - Dependencies: `@aishop-angular/utils`
@@ -48,7 +48,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 
 - [ ] **@aishop-angular/utils**
   ```bash
-  npx nx g @nx/js:library utils --directory=packages/shared/utils --bundler=tsc --tags=npm:private,scope:shared,type:util --unitTestRunner=jest
+  npx nx g @nx/js:library utils --directory=packages/shared/utils --bundler=tsc --tags=npm:private,scope:shared,type:util --unitTestRunner=vitest --linter=eslint
   ```
   - Copy source files from `tmp-src/packages/shared/utils/src/`
   - Dependencies: None
@@ -75,7 +75,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 
 - [ ] **@aishop-angular/ui**
   ```bash
-  npx nx g @nx/angular:library ui --directory=packages/shared/ui --tags=npm:public,scope:shared,type:ui --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library ui --directory=packages/shared/ui --tags=npm:public,scope:shared,type:ui --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
   - [ ] Create base UI components
   - [ ] Set up shared styling
@@ -87,7 +87,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 
 - [ ] **@aishop-angular/ui-order-detail**
   ```bash
-  npx nx g @nx/angular:library ui-order-detail --directory=packages/orders/ui-order-detail --tags=npm:public,scope:orders,type:ui --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library ui-order-detail --directory=packages/orders/ui-order-detail --tags=npm:public,scope:orders,type:ui --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
   - [ ] Create order detail display component
   - [ ] Import and use `@aishop-angular/ui` components
@@ -98,7 +98,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 - [ ] **@aishop-angular/feat-create-order**
 
   ```bash
-  npx nx g @nx/angular:library feat-create-order --directory=packages/orders/feat-create-order --tags=npm:public,scope:orders,type:feature --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library feat-create-order --directory=packages/orders/feat-create-order --tags=npm:public,scope:orders,type:feature --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
 
   - [ ] Create order creation component
@@ -109,7 +109,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 - [ ] **@aishop-angular/feat-current-orders**
 
   ```bash
-  npx nx g @nx/angular:library feat-current-orders --directory=packages/orders/feat-current-orders --tags=npm:public,scope:orders,type:feature --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library feat-current-orders --directory=packages/orders/feat-current-orders --tags=npm:public,scope:orders,type:feature --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
 
   - [ ] Create current orders list component
@@ -120,7 +120,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 - [ ] **@aishop-angular/feat-cancel-order**
 
   ```bash
-  npx nx g @nx/angular:library feat-cancel-order --directory=packages/orders/feat-cancel-order --tags=npm:public,scope:orders,type:feature --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library feat-cancel-order --directory=packages/orders/feat-cancel-order --tags=npm:public,scope:orders,type:feature --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
 
   - [ ] Create order cancellation component
@@ -130,7 +130,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 
 - [ ] **@aishop-angular/feat-past-orders**
   ```bash
-  npx nx g @nx/angular:library feat-past-orders --directory=packages/orders/feat-past-orders --tags=npm:public,scope:orders,type:feature --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library feat-past-orders --directory=packages/orders/feat-past-orders --tags=npm:public,scope:orders,type:feature --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
   - [ ] Create past orders component
   - [ ] Import `@aishop-angular/data-access-order`
@@ -143,7 +143,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 
 - [ ] **@aishop-angular/ui-product-detail**
   ```bash
-  npx nx g @nx/angular:library ui-product-detail --directory=packages/products/ui-product-detail --tags=npm:public,scope:products,type:ui --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library ui-product-detail --directory=packages/products/ui-product-detail --tags=npm:public,scope:products,type:ui --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
   - [ ] Create product detail display component
   - [ ] Import and use `@aishop-angular/ui` components
@@ -154,7 +154,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 - [ ] **@aishop-angular/feat-product-detail**
 
   ```bash
-  npx nx g @nx/angular:library feat-product-detail --directory=packages/products/feat-product-detail --tags=npm:public,scope:products,type:feature --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library feat-product-detail --directory=packages/products/feat-product-detail --tags=npm:public,scope:products,type:feature --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
 
   - [ ] Create product detail page component
@@ -164,7 +164,7 @@ This document provides a step-by-step checklist to migrate the React-based @aish
 
 - [ ] **@aishop-angular/feat-product-list**
   ```bash
-  npx nx g @nx/angular:library feat-product-list --directory=packages/products/feat-product-list --tags=npm:public,scope:products,type:feature --standalone --style=css --unitTestRunner=jest
+  npx nx g @nx/angular:library feat-product-list --directory=packages/products/feat-product-list --tags=npm:public,scope:products,type:feature --standalone --style=css --unitTestRunner=vitest --linter=eslint
   ```
   - [ ] Create product grid component
   - [ ] Import `@aishop-angular/data-access-products`

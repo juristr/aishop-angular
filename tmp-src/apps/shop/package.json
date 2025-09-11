@@ -1,0 +1,32 @@
+{
+  "name": "@aishop/shop",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@aishop/feat-product-detail": "*",
+    "@aishop/feat-product-list": "*",
+    "@aishop/feat-create-order": "*",
+    "@aishop/feat-current-orders": "*",
+    "@aishop/feat-past-orders": "*",
+    "@aishop/feat-cancel-order": "*"
+  },
+  "devDependencies": {},
+  "nx": {
+    "tags": [
+      "type:app"
+    ],
+    "targets": {
+      "build": {
+        "syncGenerators": [
+          "@aishop/tailwind-sync-plugin:update-tailwind-globs"
+        ]
+      },
+      "serve": {
+        "syncGenerators": [
+          "@aishop/tailwind-sync-plugin:update-tailwind-globs"
+        ]
+      }
+    }
+  }
+}

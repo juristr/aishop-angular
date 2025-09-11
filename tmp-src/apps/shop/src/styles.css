@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@source "../../../packages/orders/data-access-order";
+@source "../../../packages/orders/feat-cancel-order";
+@source "../../../packages/orders/feat-create-order";
+@source "../../../packages/orders/feat-current-orders";
+@source "../../../packages/orders/feat-past-orders";
+@source "../../../packages/orders/ui-order-detail";
+@source "../../../packages/products/data-access-products";
+@source "../../../packages/products/feat-product-detail";
+@source "../../../packages/products/feat-product-list";
+@source "../../../packages/products/ui-product-detail";
+@source "../../../packages/shared/ui";
+@source "../../../packages/shared/utils";
+
+
+
+
+/* Custom styles for glitch effect */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.glitch {
+  animation: glitch 0.2s linear infinite;
+  text-shadow: 3px 3px 0 rgba(255, 0, 0, 0.7),
+    -3px -3px 0 rgba(0, 255, 255, 0.7);
+}
+
+/* Flicker animation for the hacked overlay */
+@keyframes textShadowFlicker {
+  0% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff0000,
+      0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
+  18% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff0000,
+      0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
+  22% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff0000,
+      0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
+  25% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff0000,
+      0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
+  53% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff0000,
+      0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
+  57% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff0000,
+      0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff0000,
+      0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
+}
+
+/* Apply flicker to red headers */
+h1.text-red-500,
+h2.text-red-400,
+h3.text-red-400 {
+  animation: textShadowFlicker 1.5s infinite alternate;
+}

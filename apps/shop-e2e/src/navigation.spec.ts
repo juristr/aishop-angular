@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Application Navigation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
   });
 
   test('should have working navigation menu', async ({ page }) => {
@@ -79,7 +79,7 @@ test.describe('Application Navigation', () => {
 
     // Refresh page
     await page.reload();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Should still be on orders page
     await expect(page).toHaveURL('/orders');
@@ -159,17 +159,15 @@ test.describe('Application Navigation', () => {
     const navigationPromise = page.goto('/orders');
 
     // Check if loading indicator is shown during navigation
-    const loadingIndicator = page.locator('[data-testid="loading"]', {
-      timeout: 1000,
-    });
+    const loadingIndicator = page.locator('[data-testid="loading"]');
 
     // Complete navigation
     await navigationPromise;
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Loading indicator should be gone
     if (await loadingIndicator.isVisible()) {
-      await expect(loadingIndicator).not.toBeVisible();
+      await expect(loadingIndicator).toBeHidden();
     }
 
     // Final content should be visible
@@ -181,7 +179,6 @@ test.describe('Application Navigation', () => {
   }) => {
     // Scroll down on home page
     await page.evaluate(() => window.scrollTo(0, 200));
-    const scrollPosition = await page.evaluate(() => window.pageYOffset);
 
     // Navigate to another page
     await page.goto('/orders');
@@ -189,7 +186,7 @@ test.describe('Application Navigation', () => {
 
     // Navigate back
     await page.goBack();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check if scroll position is maintained (browser dependent)
     const newScrollPosition = await page.evaluate(() => window.pageYOffset);

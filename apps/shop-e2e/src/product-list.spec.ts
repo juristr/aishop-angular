@@ -59,7 +59,7 @@ test.describe('Product List Page', () => {
     await page.locator('[data-testid="filter-featured"]').click();
 
     // Wait for products to load
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Verify Featured button is active
     const featuredButton = page.locator(
@@ -78,7 +78,7 @@ test.describe('Product List Page', () => {
     await page.locator('[data-testid="filter-new-arrivals"]').click();
 
     // Wait for products to load
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Verify New Arrivals button is active
     const newArrivalsButton = page.locator(
@@ -92,7 +92,7 @@ test.describe('Product List Page', () => {
     await page.locator('[data-testid="filter-on-sale"]').click();
 
     // Wait for products to load
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Verify On Sale button is active
     const onSaleButton = page.locator('[data-testid="filter-on-sale"] button');
@@ -138,7 +138,7 @@ test.describe('Product List Page', () => {
 
     // Switch to a filter that might have no results
     await page.locator('[data-testid="filter-on-sale"]').click();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // If no products, should show empty state
     const productCount = await page

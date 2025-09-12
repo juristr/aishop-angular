@@ -28,7 +28,7 @@ jobs:
           cache: 'npm'
 
       - run: npm ci --legacy-peer-deps
-      - run: npx playwright install --with-deps
+      - run: npx playwright@latest install --with-deps
       - uses: nrwl/nx-set-shas@v4
 
       - name: check formatting

@@ -12,7 +12,7 @@ const mockProducts: Product[] = [
     sku: 'AT-WH-001',
     inStock: true,
     stockQuantity: 45,
-    images: ['/api/placeholder/400/400'],
+    images: ['https://images.pexels.com/photos/3945665/pexels-photo-3945665.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'],
     rating: 4.5,
     reviewCount: 234,
     features: [
@@ -41,7 +41,7 @@ const mockProducts: Product[] = [
     sku: 'GG-KB-001',
     inStock: true,
     stockQuantity: 30,
-    images: ['/api/placeholder/400/400'],
+    images: ['https://images.pexels.com/photos/2115217/pexels-photo-2115217.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'],
     rating: 4.7,
     reviewCount: 456,
     features: [
@@ -69,7 +69,7 @@ const mockProducts: Product[] = [
     sku: 'CP-HUB-001',
     inStock: true,
     stockQuantity: 100,
-    images: ['/api/placeholder/400/400'],
+    images: ['https://images.pexels.com/photos/163100/circuit-circuit-board-resistor-computer-163100.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'],
     rating: 4.3,
     reviewCount: 178,
     features: [
@@ -96,7 +96,7 @@ const mockProducts: Product[] = [
     sku: 'ET-LS-001',
     inStock: true,
     stockQuantity: 75,
-    images: ['/api/placeholder/400/400'],
+    images: ['https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'],
     rating: 4.6,
     reviewCount: 89,
     features: [
@@ -123,7 +123,7 @@ const mockProducts: Product[] = [
     sku: 'GG-MS-001',
     inStock: true,
     stockQuantity: 60,
-    images: ['/api/placeholder/400/400'],
+    images: ['https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'],
     rating: 4.8,
     reviewCount: 321,
     features: [
@@ -152,7 +152,7 @@ const mockProducts: Product[] = [
     sku: 'VT-WC-001',
     inStock: false,
     stockQuantity: 0,
-    images: ['/api/placeholder/400/400'],
+    images: ['https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'],
     rating: 4.4,
     reviewCount: 145,
     features: [
@@ -179,7 +179,7 @@ const mockProducts: Product[] = [
     sku: 'SH-PS-001',
     inStock: true,
     stockQuantity: 40,
-    images: ['/api/placeholder/400/400'],
+    images: ['https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'],
     rating: 4.2,
     reviewCount: 67,
     features: [
@@ -207,7 +207,7 @@ const mockProducts: Product[] = [
     sku: 'DD-SSD-001',
     inStock: true,
     stockQuantity: 85,
-    images: ['/api/placeholder/400/400'],
+    images: ['https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'],
     rating: 4.7,
     reviewCount: 298,
     features: [

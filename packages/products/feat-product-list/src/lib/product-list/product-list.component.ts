@@ -57,7 +57,7 @@ import { formatCurrency } from '@aishop-angular/utils';
           <a [routerLink]="['/product', product.id]" class="block">
             <div class="aspect-square bg-gray-100">
               <img 
-                [src]="product.images[0] || '/api/placeholder/400/400'" 
+                [src]="product.images[0] || 'https://images.pexels.com/photos/163100/circuit-circuit-board-resistor-computer-163100.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'" 
                 [alt]="product.name"
                 class="w-full h-full object-cover"
               >

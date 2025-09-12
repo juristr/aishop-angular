@@ -14,7 +14,7 @@ import { formatCurrency } from '@aishop-angular/utils';
       <div class="space-y-4">
         <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
           <img 
-            [src]="product.images[0] || '/api/placeholder/600/600'" 
+            [src]="product.images[0] || 'https://images.pexels.com/photos/163100/circuit-circuit-board-resistor-computer-163100.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop'" 
             [alt]="product.name"
             class="w-full h-full object-cover"
           >

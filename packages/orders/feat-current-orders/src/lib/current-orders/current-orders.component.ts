@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { dataAccessOrder, Order } from '@aishop-angular/data-access-order';
 import { OrderDetailComponent } from '@aishop-angular/ui-order-detail';
-import { CardComponent } from '@aishop-angular/ui';
 
 @Component({
   selector: 'feat-current-orders',
   standalone: true,
-  imports: [CommonModule, OrderDetailComponent, CardComponent],
+  imports: [CommonModule, OrderDetailComponent],
   template: `
     <div class="space-y-6">
       <h2 class="text-2xl font-bold">Current Orders</h2>

@@ -22,24 +22,28 @@ import { formatCurrency } from '@aishop-angular/utils';
         <ui-button 
           [variant]="currentFilter === 'all' ? 'primary' : 'ghost'"
           (buttonClick)="setFilter('all')"
+          data-testid="filter-all-products"
         >
           All Products
         </ui-button>
         <ui-button 
           [variant]="currentFilter === 'featured' ? 'primary' : 'ghost'"
           (buttonClick)="setFilter('featured')"
+          data-testid="filter-featured"
         >
           Featured
         </ui-button>
         <ui-button 
           [variant]="currentFilter === 'new' ? 'primary' : 'ghost'"
           (buttonClick)="setFilter('new')"
+          data-testid="filter-new-arrivals"
         >
           New Arrivals
         </ui-button>
         <ui-button 
           [variant]="currentFilter === 'sale' ? 'primary' : 'ghost'"
           (buttonClick)="setFilter('sale')"
+          data-testid="filter-on-sale"
         >
           On Sale
         </ui-button>
@@ -52,6 +56,7 @@ import { formatCurrency } from '@aishop-angular/utils';
           [hoverable]="true"
           [noPadding]="true"
           class="cursor-pointer"
+          data-testid="product-card"
         >
           <a [routerLink]="['/product', product.id]" class="block">
             <div class="aspect-square bg-gray-100">
@@ -69,10 +74,10 @@ import { formatCurrency } from '@aishop-angular/utils';
                   <ui-badge *ngIf="product.discount" variant="danger" size="sm">-{{ product.discount }}%</ui-badge>
                 </div>
               </div>
-              <p class="text-sm text-gray-600 mb-2 line-clamp-2">{{ product.description }}</p>
+              <p class="text-sm text-gray-600 mb-2 line-clamp-2" data-testid="product-description">{{ product.description }}</p>
               <div class="flex items-center justify-between">
                 <div>
-                  <span class="text-lg font-bold text-gray-900">
+                  <span class="text-lg font-bold text-gray-900" data-testid="product-price">
                     {{ formatCurrency(getDiscountedPrice(product)) }}
                   </span>
                   <span *ngIf="product.discount" class="text-sm text-gray-500 line-through ml-2">

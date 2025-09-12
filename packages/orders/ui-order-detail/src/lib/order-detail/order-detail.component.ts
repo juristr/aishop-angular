@@ -9,19 +9,22 @@ import { formatCurrency, formatDate } from '@aishop-angular/utils';
   standalone: true,
   imports: [CommonModule, CardComponent, BadgeComponent, ButtonComponent],
   template: `
-    <ui-card [title]="'Order #' + order.id">
+    <ui-card [title]="'Order #' + order.id" data-testid="order-card">
       <div class="space-y-6">
         <!-- Order Status -->
         <div class="flex items-center justify-between">
           <div>
             <p class="text-sm text-gray-600">Status</p>
-            <ui-badge [variant]="getStatusVariant(order.status)">
+            <ui-badge [variant]="getStatusVariant(order.status)" data-testid="order-status">
               {{ getStatusLabel(order.status) }}
             </ui-badge>
           </div>
           <div class="text-right">
             <p class="text-sm text-gray-600">Order Date</p>
-            <p class="font-medium">{{ formatDate(order.orderDate) }}</p>
+            <p class="font-medium" data-testid="order-date">{{ formatDate(order.orderDate) }}</p>
+          </div>
+          <div class="hidden">
+            <span data-testid="order-id">{{ order.id }}</span>
           </div>
         </div>
 
@@ -29,7 +32,7 @@ import { formatCurrency, formatDate } from '@aishop-angular/utils';
         <div>
           <h4 class="text-sm font-medium text-gray-900 mb-2">Customer Information</h4>
           <div class="bg-gray-50 rounded-lg p-4">
-            <p class="text-sm"><span class="font-medium">Name:</span> {{ order.customerName }}</p>
+            <p class="text-sm" data-testid="order-customer"><span class="font-medium">Name:</span> {{ order.customerName }}</p>
             <p class="text-sm mt-1"><span class="font-medium">Email:</span> {{ order.customerEmail }}</p>
           </div>
         </div>
@@ -45,7 +48,7 @@ import { formatCurrency, formatDate } from '@aishop-angular/utils';
         </div>
 
         <!-- Order Items -->
-        <div>
+        <div data-testid="order-items">
           <h4 class="text-sm font-medium text-gray-900 mb-2">Order Items</h4>
           <div class="bg-gray-50 rounded-lg overflow-hidden">
             <table class="min-w-full">
@@ -68,7 +71,7 @@ import { formatCurrency, formatDate } from '@aishop-angular/utils';
               <tfoot class="bg-gray-100">
                 <tr>
                   <td colspan="3" class="px-4 py-2 text-right text-sm font-medium">Total:</td>
-                  <td class="px-4 py-2 text-right text-lg font-bold text-gray-900">
+                  <td class="px-4 py-2 text-right text-lg font-bold text-gray-900" data-testid="order-total">
                     {{ formatCurrency(order.totalAmount) }}
                   </td>
                 </tr>
@@ -103,6 +106,7 @@ import { formatCurrency, formatDate } from '@aishop-angular/utils';
             *ngIf="canCancel()"
             variant="danger"
             (buttonClick)="onCancelOrder()"
+            data-testid="cancel-order-btn"
           >
             Cancel Order
           </ui-button>

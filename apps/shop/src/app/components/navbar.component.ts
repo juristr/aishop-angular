@@ -19,30 +19,31 @@ import { RouterModule } from '@angular/router';
 
           <!-- Navigation Links -->
           <div class="hidden md:flex items-center space-x-8">
-            <a 
-              [routerLink]="['/']" 
+            <a
+              [routerLink]="['/']"
               routerLinkActive="text-blue-600"
               [routerLinkActiveOptions]="{ exact: true }"
               class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               Home
             </a>
-            <a 
-              [routerLink]="['/orders']" 
+            <a
+              [routerLink]="['/orders']"
               routerLinkActive="text-blue-600"
+              data-testid="nav-orders-link"
               class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               Orders
             </a>
-            <a 
-              [routerLink]="['/orders/past']" 
+            <a
+              [routerLink]="['/orders/past']"
               routerLinkActive="text-blue-600"
               class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               Past Orders
             </a>
-            <a 
-              [routerLink]="['/orders/create']" 
+            <a
+              [routerLink]="['/orders/create']"
               routerLinkActive="text-blue-600"
               class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
             >
@@ -52,13 +53,23 @@ import { RouterModule } from '@angular/router';
 
           <!-- Mobile menu button -->
           <div class="md:hidden">
-            <button 
-              type="button" 
+            <button
+              type="button"
               (click)="toggleMobileMenu()"
               class="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600"
             >
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </button>
           </div>
@@ -67,8 +78,8 @@ import { RouterModule } from '@angular/router';
         <!-- Mobile Menu -->
         <div class="md:hidden" [class.hidden]="!isMobileMenuOpen">
           <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-            <a 
-              [routerLink]="['/']" 
+            <a
+              [routerLink]="['/']"
               routerLinkActive="text-blue-600 bg-blue-50"
               [routerLinkActiveOptions]="{ exact: true }"
               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
@@ -76,24 +87,24 @@ import { RouterModule } from '@angular/router';
             >
               Home
             </a>
-            <a 
-              [routerLink]="['/orders']" 
+            <a
+              [routerLink]="['/orders']"
               routerLinkActive="text-blue-600 bg-blue-50"
               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
               (click)="closeMobileMenu()"
             >
               Orders
             </a>
-            <a 
-              [routerLink]="['/orders/past']" 
+            <a
+              [routerLink]="['/orders/past']"
               routerLinkActive="text-blue-600 bg-blue-50"
               class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
               (click)="closeMobileMenu()"
             >
               Past Orders
             </a>
-            <a 
-              [routerLink]="['/orders/create']" 
+            <a
+              [routerLink]="['/orders/create']"
               routerLinkActive="text-blue-600 bg-blue-50"
               class="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors"
               (click)="closeMobileMenu()"
@@ -105,7 +116,7 @@ import { RouterModule } from '@angular/router';
       </div>
     </nav>
   `,
-  styles: []
+  styles: [],
 })
 export class NavbarComponent {
   isMobileMenuOpen = false;

@@ -17,6 +17,7 @@ import { formatCurrency } from '@aishop-angular/utils';
             [src]="product.images[0] || 'https://images.pexels.com/photos/163100/circuit-circuit-board-resistor-computer-163100.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop'" 
             [alt]="product.name"
             class="w-full h-full object-cover"
+            data-testid="product-image"
           >
         </div>
         <div class="grid grid-cols-4 gap-2" *ngIf="product.images.length > 1">
@@ -40,7 +41,7 @@ import { formatCurrency } from '@aishop-angular/utils';
               <ui-badge *ngIf="product.isFeatured" variant="warning">Featured</ui-badge>
             </div>
           </div>
-          <p class="text-gray-600">{{ product.description }}</p>
+          <p class="text-gray-600" data-testid="product-description">{{ product.description }}</p>
         </div>
 
         <!-- Price and Stock -->
@@ -48,10 +49,10 @@ import { formatCurrency } from '@aishop-angular/utils';
           <div class="flex items-center justify-between mb-4">
             <div>
               <div class="flex items-baseline gap-2">
-                <span class="text-3xl font-bold text-gray-900">
+                <span class="text-3xl font-bold text-gray-900" data-testid="product-price">
                   {{ formatCurrency(getDiscountedPrice()) }}
                 </span>
-                <span *ngIf="product.discount" class="text-xl text-gray-500 line-through">
+                <span *ngIf="product.discount" class="text-xl text-gray-500 line-through" data-testid="original-price">
                   {{ formatCurrency(product.price) }}
                 </span>
               </div>
@@ -70,7 +71,7 @@ import { formatCurrency } from '@aishop-angular/utils';
           </div>
 
           <!-- Rating -->
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2" data-testid="product-rating">
             <div class="flex">
               <span *ngFor="let star of [1,2,3,4,5]" 
                     class="text-yellow-400"
@@ -101,7 +102,7 @@ import { formatCurrency } from '@aishop-angular/utils';
         </div>
 
         <!-- Features -->
-        <div *ngIf="product.features.length > 0">
+        <div *ngIf="product.features.length > 0" data-testid="product-features">
           <h3 class="text-lg font-semibold mb-3">Key Features</h3>
           <ul class="space-y-2">
             <li *ngFor="let feature of product.features" class="flex items-start">
@@ -113,19 +114,21 @@ import { formatCurrency } from '@aishop-angular/utils';
 
         <!-- Add to Cart -->
         <div class="flex items-center gap-4">
-          <div class="flex items-center border rounded-lg">
+          <div class="flex items-center border rounded-lg" data-testid="quantity-selector">
             <button 
               (click)="decrementQuantity()"
               class="px-4 py-2 hover:bg-gray-100 transition-colors"
               [disabled]="quantity <= 1"
+              data-testid="quantity-decrease"
             >
               -
             </button>
-            <span class="px-4 py-2 font-medium">{{ quantity }}</span>
+            <span class="px-4 py-2 font-medium" data-testid="quantity-display">{{ quantity }}</span>
             <button 
               (click)="incrementQuantity()"
               class="px-4 py-2 hover:bg-gray-100 transition-colors"
               [disabled]="quantity >= product.stockQuantity"
+              data-testid="quantity-increase"
             >
               +
             </button>
@@ -136,13 +139,14 @@ import { formatCurrency } from '@aishop-angular/utils';
             [fullWidth]="true"
             [disabled]="!product.inStock"
             (buttonClick)="onAddToCart()"
+            data-testid="add-to-cart-btn"
           >
             Add to Cart
           </ui-button>
         </div>
 
         <!-- Specifications -->
-        <ui-card *ngIf="hasSpecifications()" title="Specifications" [noPadding]="true">
+        <ui-card *ngIf="hasSpecifications()" title="Specifications" [noPadding]="true" data-testid="product-specifications">
           <div class="divide-y">
             <div *ngFor="let spec of getSpecifications()" class="px-4 py-3 flex justify-between">
               <span class="text-gray-600">{{ spec.key }}</span>
@@ -152,7 +156,7 @@ import { formatCurrency } from '@aishop-angular/utils';
         </ui-card>
 
         <!-- Tags -->
-        <div *ngIf="product.tags.length > 0" class="flex flex-wrap gap-2">
+        <div *ngIf="product.tags.length > 0" class="flex flex-wrap gap-2" data-testid="product-tags">
           <ui-badge *ngFor="let tag of product.tags" variant="default" size="sm">
             {{ tag }}
           </ui-badge>

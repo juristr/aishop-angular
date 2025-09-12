@@ -15,7 +15,7 @@ import { OrderDetailComponent } from '@aishop-angular/ui-order-detail';
         <p class="text-gray-500">No current orders</p>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-4" data-testid="order-list">
         <ui-order-detail 
           *ngFor="let order of currentOrders"
           [order]="order"

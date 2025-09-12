@@ -11,7 +11,7 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
   "targetDefaults": {
     "@angular/build:application": {
@@ -28,7 +28,10 @@
         "{workspaceRoot}/eslint.config.mjs"
       ]
     },
-    "@nx/vite:test": { "cache": true, "inputs": ["default", "^production"] },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    },
     "@nx/js:tsc": {
       "cache": true,
       "dependsOn": ["^build"],
@@ -36,8 +39,18 @@
     }
   },
   "plugins": [
-    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
-    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
     {
       "plugin": "@nx/vite/plugin",
       "options": {
@@ -60,8 +73,13 @@
       "style": "css",
       "unitTestRunner": "vitest"
     },
-    "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "vitest" },
-    "@nx/angular:component": { "style": "css" }
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "vitest"
+    },
+    "@nx/angular:component": {
+      "style": "css"
+    }
   },
   "nxCloudId": "68c41a931ccca32b3cd73bb3",
   "nxCloudUrl": "https://staging.nx.app"

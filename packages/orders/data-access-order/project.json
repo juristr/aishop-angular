@@ -1,0 +1,19 @@
+{
+  "name": "data-access-order",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/orders/data-access-order/src",
+  "projectType": "library",
+  "tags": ["npm:private", "scope:orders", "type:data-access"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/orders/data-access-order",
+        "main": "packages/orders/data-access-order/src/index.ts",
+        "tsConfig": "packages/orders/data-access-order/tsconfig.lib.json",
+        "assets": ["packages/orders/data-access-order/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "feat-current-orders",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/orders/feat-current-orders/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["npm:public", "scope:orders", "type:feature"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "feat-cancel-order",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/orders/feat-cancel-order/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["npm:public", "scope:orders", "type:feature"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

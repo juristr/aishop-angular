@@ -1,0 +1,13 @@
+{
+  "name": "ui-order-detail",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/orders/ui-order-detail/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["npm:public", "scope:orders", "type:ui"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

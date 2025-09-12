@@ -1,0 +1,13 @@
+{
+  "name": "ui-product-detail",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/products/ui-product-detail/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["npm:public", "scope:products", "type:ui"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

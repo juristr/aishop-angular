@@ -1,0 +1,13 @@
+{
+  "name": "feat-product-list",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/products/feat-product-list/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["npm:public", "scope:products", "type:feature"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

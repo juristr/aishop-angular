@@ -1,0 +1,19 @@
+{
+  "name": "data-access-products",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/products/data-access-products/src",
+  "projectType": "library",
+  "tags": ["npm:private", "scope:products", "type:data-access"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/products/data-access-products",
+        "main": "packages/products/data-access-products/src/index.ts",
+        "tsConfig": "packages/products/data-access-products/tsconfig.lib.json",
+        "assets": ["packages/products/data-access-products/*.md"]
+      }
+    }
+  }
+}

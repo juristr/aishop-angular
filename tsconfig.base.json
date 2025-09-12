@@ -14,7 +14,40 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@aishop-angular/data-access-order": [
+        "packages/orders/data-access-order/src/index.ts"
+      ],
+      "@aishop-angular/data-access-products": [
+        "packages/products/data-access-products/src/index.ts"
+      ],
+      "@aishop-angular/feat-cancel-order": [
+        "packages/orders/feat-cancel-order/src/index.ts"
+      ],
+      "@aishop-angular/feat-create-order": [
+        "packages/orders/feat-create-order/src/index.ts"
+      ],
+      "@aishop-angular/feat-current-orders": [
+        "packages/orders/feat-current-orders/src/index.ts"
+      ],
+      "@aishop-angular/feat-past-orders": [
+        "packages/orders/feat-past-orders/src/index.ts"
+      ],
+      "@aishop-angular/feat-product-detail": [
+        "packages/products/feat-product-detail/src/index.ts"
+      ],
+      "@aishop-angular/feat-product-list": [
+        "packages/products/feat-product-list/src/index.ts"
+      ],
+      "@aishop-angular/ui": ["packages/shared/ui/src/index.ts"],
+      "@aishop-angular/ui-order-detail": [
+        "packages/orders/ui-order-detail/src/index.ts"
+      ],
+      "@aishop-angular/ui-product-detail": [
+        "packages/products/ui-product-detail/src/index.ts"
+      ],
+      "@aishop-angular/utils": ["packages/shared/utils/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

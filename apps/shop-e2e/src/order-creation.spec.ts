@@ -4,7 +4,7 @@ test.describe('Order Creation Flow', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to create order page
     await page.goto('/orders/create');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
   });
 
   test('should display order creation form', async ({ page }) => {
@@ -59,7 +59,7 @@ test.describe('Order Creation Flow', () => {
     await page.locator('ui-button[type="submit"]').click();
 
     // Wait for order creation
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check for success message or redirect
     await expect(
@@ -80,7 +80,7 @@ test.describe('Order Creation Flow', () => {
     await page.locator('select[name="paymentMethod"]').selectOption('paypal');
 
     await page.locator('ui-button[type="submit"]').click();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // Check for order details display
     await expect(page.locator('ui-order-detail')).toBeVisible();
@@ -214,7 +214,7 @@ test.describe('Order Creation Flow', () => {
     await page.locator('input[name="zipCode"]').fill('12345');
 
     await page.locator('ui-button[type="submit"]').click();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     // After order creation, should show order details with sample product
     await expect(page.locator('ui-order-detail')).toBeVisible();

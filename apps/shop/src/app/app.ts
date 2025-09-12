@@ -10,6 +10,4 @@ import { FooterComponent } from './components/footer.component';
   styleUrl: './app.css',
   standalone: true,
 })
-export class App {
-  protected title = 'shop';
-}
+export class App {}

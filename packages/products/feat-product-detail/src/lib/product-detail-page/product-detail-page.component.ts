@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { getProductById, Product } from '@aishop-angular/data-access-products';
@@ -23,12 +23,9 @@ import { ProductDetailComponent } from '@aishop-angular/ui-product-detail';
   styles: []
 })
 export class ProductDetailPageComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
   product?: Product;
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

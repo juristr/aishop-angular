@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { dataAccessOrder, CreateOrderDto } from '@aishop-angular/data-access-order';
+import { dataAccessOrder, Order } from '@aishop-angular/data-access-order';
 import { OrderDetailComponent } from '@aishop-angular/ui-order-detail';
 import { CardComponent, ButtonComponent } from '@aishop-angular/ui';
 
@@ -18,9 +18,10 @@ import { CardComponent, ButtonComponent } from '@aishop-angular/ui';
         <form (ngSubmit)="onSubmit()" class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label class="block text-sm font-medium mb-1">Customer Name</label>
+              <label for="customerName" class="block text-sm font-medium mb-1">Customer Name</label>
               <input 
                 type="text" 
+                id="customerName"
                 [(ngModel)]="orderData.customerName"
                 name="customerName"
                 required
@@ -28,9 +29,10 @@ import { CardComponent, ButtonComponent } from '@aishop-angular/ui';
               >
             </div>
             <div>
-              <label class="block text-sm font-medium mb-1">Customer Email</label>
+              <label for="customerEmail" class="block text-sm font-medium mb-1">Customer Email</label>
               <input 
                 type="email" 
+                id="customerEmail"
                 [(ngModel)]="orderData.customerEmail"
                 name="customerEmail"
                 required
@@ -80,8 +82,9 @@ import { CardComponent, ButtonComponent } from '@aishop-angular/ui';
           </div>
 
           <div>
-            <label class="block text-sm font-medium mb-1">Payment Method</label>
+            <label for="paymentMethod" class="block text-sm font-medium mb-1">Payment Method</label>
             <select 
+              id="paymentMethod"
               [(ngModel)]="orderData.paymentMethod"
               name="paymentMethod"
               required
@@ -94,8 +97,9 @@ import { CardComponent, ButtonComponent } from '@aishop-angular/ui';
           </div>
 
           <div>
-            <label class="block text-sm font-medium mb-1">Notes (Optional)</label>
+            <label for="notes" class="block text-sm font-medium mb-1">Notes (Optional)</label>
             <textarea 
+              id="notes"
               [(ngModel)]="orderData.notes"
               name="notes"
               rows="3"
@@ -123,6 +127,7 @@ import { CardComponent, ButtonComponent } from '@aishop-angular/ui';
   styles: []
 })
 export class CreateOrderComponent {
+  private router = inject(Router);
   orderService = dataAccessOrder();
   
   orderData = {
@@ -143,9 +148,8 @@ export class CreateOrderComponent {
     notes: ''
   };
 
-  createdOrder: any = null;
+  createdOrder: Order | null = null;
 
-  constructor(private router: Router) {}
 
   onSubmit(): void {
     const order = this.orderService.createOrder(this.orderData);

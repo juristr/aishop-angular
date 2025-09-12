@@ -43,13 +43,13 @@ import { CardComponent, ButtonComponent } from '@aishop-angular/ui';
 export class CancelOrderComponent {
   @Input() order!: Order;
   @Output() confirm = new EventEmitter<string>();
-  @Output() cancel = new EventEmitter<void>();
+  @Output() cancelAction = new EventEmitter<void>();
 
   confirmCancel(): void {
     this.confirm.emit(this.order.id);
   }
 
   cancelAction(): void {
-    this.cancel.emit();
+    this.cancelAction.emit();
   }
 }

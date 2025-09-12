@@ -227,6 +227,7 @@ const mockProducts: Product[] = [
   }
 ];
 
+// eslint-disable-next-line prefer-const
 let products: Product[] = [...mockProducts];
 
 export function getProducts(filter?: ProductFilter, sort?: ProductSort): Product[] {

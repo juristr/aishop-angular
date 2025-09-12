@@ -6,8 +6,7 @@ import {
   getFeaturedProducts, 
   getNewProducts,
   getDiscountedProducts,
-  Product, 
-  ProductFilter 
+  Product
 } from '@aishop-angular/data-access-products';
 import { CardComponent, BadgeComponent, ButtonComponent } from '@aishop-angular/ui';
 import { formatCurrency } from '@aishop-angular/utils';

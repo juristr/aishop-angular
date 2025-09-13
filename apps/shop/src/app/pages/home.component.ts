@@ -9,7 +9,7 @@ import { ProductListComponent } from '@aishop-angular/feat-product-list';
   template: `
     <section class="mb-8">
       <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-800">Our Products</h2>
+        <h2 class="text-2xl font-bold text-gray-800">Featured Products</h2>
       </div>
       <feat-product-list />
     </section>

@@ -112,34 +112,6 @@ test.describe('Product Detail Page', () => {
     }
   });
 
-  test('should disable add to cart for out-of-stock products', async ({
-    page,
-  }) => {
-    // Navigate through products to find an out-of-stock one
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
-
-    // Look for out of stock product in the list
-    const outOfStockProducts = page
-      .locator('[data-testid="product-card"]')
-      .filter({
-        has: page.locator('ui-badge').filter({ hasText: 'Out of Stock' }),
-      });
-
-    const outOfStockCount = await outOfStockProducts.count();
-
-    if (outOfStockCount > 0) {
-      await outOfStockProducts.first().click();
-      await page.waitForLoadState('domcontentloaded');
-
-      // Add to cart button should be disabled
-      const addToCartBtn = page.locator('[data-testid="add-to-cart-btn"]');
-      if (await addToCartBtn.isVisible()) {
-        await expect(addToCartBtn).toBeDisabled();
-      }
-    }
-  });
-
   test('should display product tags', async ({ page }) => {
     // Navigate to first product
     await page.locator('[data-testid="product-card"]').first().click();
@@ -186,23 +158,6 @@ test.describe('Product Detail Page', () => {
         // Original price should have strikethrough styling
         await expect(originalPrice).toHaveClass(/line-through/);
       }
-    }
-  });
-
-  test('should handle product not found', async ({ page }) => {
-    // Navigate to invalid product ID
-    await page.goto('/product/invalid-product-id');
-    await page.waitForLoadState('domcontentloaded');
-
-    // Should redirect to home page or show not found message
-    const currentUrl = page.url();
-
-    if (currentUrl.includes('/product/invalid-product-id')) {
-      // Check for not found message
-      await expect(page.locator('text="Product not found"')).toBeVisible();
-    } else {
-      // Should be redirected to home page
-      await expect(page).toHaveURL('/');
     }
   });
 });

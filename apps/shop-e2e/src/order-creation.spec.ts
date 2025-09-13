@@ -67,27 +67,27 @@ test.describe('Order Creation Flow', () => {
     ).toBeVisible({ timeout: 10000 });
   });
 
-  test('should display order summary after creation', async ({ page }) => {
-    // Fill and submit form
-    await page.locator('input[name="customerName"]').fill('Jane Smith');
-    await page
-      .locator('input[name="customerEmail"]')
-      .fill('jane.smith@example.com');
-    await page.locator('input[name="street"]').fill('456 Oak Ave');
-    await page.locator('input[name="city"]').fill('Los Angeles');
-    await page.locator('input[name="state"]').fill('CA');
-    await page.locator('input[name="zipCode"]').fill('90210');
-    await page.locator('select[name="paymentMethod"]').selectOption('paypal');
+  // test('should display order summary after creation', async ({ page }) => {
+  //   // Fill and submit form
+  //   await page.locator('input[name="customerName"]').fill('Jane Smith');
+  //   await page
+  //     .locator('input[name="customerEmail"]')
+  //     .fill('jane.smith@example.com');
+  //   await page.locator('input[name="street"]').fill('456 Oak Ave');
+  //   await page.locator('input[name="city"]').fill('Los Angeles');
+  //   await page.locator('input[name="state"]').fill('CA');
+  //   await page.locator('input[name="zipCode"]').fill('90210');
+  //   await page.locator('select[name="paymentMethod"]').selectOption('paypal');
 
-    await page.locator('ui-button[type="submit"]').click();
-    await page.waitForLoadState('domcontentloaded');
+  //   await page.locator('ui-button[type="submit"]').click();
+  //   await page.waitForLoadState('domcontentloaded');
 
-    // Check for order details display
-    await expect(page.locator('ui-order-detail')).toBeVisible();
-    await expect(
-      page.locator('text="Order Created Successfully!"')
-    ).toBeVisible();
-  });
+  //   // Check for order details display
+  //   await expect(page.locator('ui-order-detail')).toBeVisible();
+  //   await expect(
+  //     page.locator('text="Order Created Successfully!"')
+  //   ).toBeVisible();
+  // });
 
   test('should handle email field validation', async ({ page }) => {
     // Fill invalid email

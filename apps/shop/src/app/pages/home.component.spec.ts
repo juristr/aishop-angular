@@ -3,9 +3,9 @@ import { HomePageComponent } from './home.component';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'feat-product-list',
+  selector: 'app-feat-product-list',
   standalone: true,
-  template: '<div>Mock Product List</div>'
+  template: '<div>Mock Product List</div>',
 })
 // eslint-disable-next-line @angular-eslint/component-selector
 class MockProductListComponent {}
@@ -14,11 +14,13 @@ describe('HomePageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HomePageComponent],
-    }).overrideComponent(HomePageComponent, {
-      set: {
-        imports: [MockProductListComponent]
-      }
-    }).compileComponents();
+    })
+      .overrideComponent(HomePageComponent, {
+        set: {
+          imports: [MockProductListComponent],
+        },
+      })
+      .compileComponents();
   });
 
   it('should display "Our Products" title', () => {

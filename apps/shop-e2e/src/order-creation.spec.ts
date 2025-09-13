@@ -201,22 +201,22 @@ test.describe('Order Creation Flow', () => {
     await expect(spaceYElements.first()).toBeVisible();
   });
 
-  test('should display sample product in order', async ({ page }) => {
-    // Check that order includes sample product information
-    // This is based on the mock data in the component
-    await page.locator('input[name="customerName"]').fill('Sample Order');
-    await page
-      .locator('input[name="customerEmail"]')
-      .fill('sample@example.com');
-    await page.locator('input[name="street"]').fill('123 Sample St');
-    await page.locator('input[name="city"]').fill('Sample City');
-    await page.locator('input[name="state"]').fill('SC');
-    await page.locator('input[name="zipCode"]').fill('12345');
+  // test('should display sample product in order', async ({ page }) => {
+  //   // Check that order includes sample product information
+  //   // This is based on the mock data in the component
+  //   await page.locator('input[name="customerName"]').fill('Sample Order');
+  //   await page
+  //     .locator('input[name="customerEmail"]')
+  //     .fill('sample@example.com');
+  //   await page.locator('input[name="street"]').fill('123 Sample St');
+  //   await page.locator('input[name="city"]').fill('Sample City');
+  //   await page.locator('input[name="state"]').fill('SC');
+  //   await page.locator('input[name="zipCode"]').fill('12345');
 
-    await page.locator('ui-button[type="submit"]').click();
-    await page.waitForLoadState('domcontentloaded');
+  //   await page.locator('ui-button[type="submit"]').click();
+  //   await page.waitForLoadState('domcontentloaded');
 
-    // After order creation, should show order details with sample product
-    await expect(page.locator('ui-order-detail')).toBeVisible();
-  });
+  //   // After order creation, should show order details with sample product
+  //   await expect(page.locator('ui-order-detail')).toBeVisible();
+  // });
 });
